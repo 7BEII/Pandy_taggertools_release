@@ -1,0 +1,215 @@
+/* 自定义样式 */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Checkbox紫色主题 */
+input[type="checkbox"]:checked {
+    background-color: #8B5CF6 !important;
+    border-color: #8B5CF6 !important;
+}
+
+input[type="checkbox"]:focus {
+    --tw-ring-color: #8B5CF6 !important;
+    border-color: #8B5CF6 !important;
+}
+
+input[type="checkbox"] {
+    accent-color: #8B5CF6;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 文本截断 */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 渐变背景动画 */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-animated {
+    background: linear-gradient(-45deg, #8B5CF6, #3B82F6, #10B981, #F59E0B);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+}
+
+/* 按钮禁用状态 */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 图片加载动画 */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.skeleton {
+    animation: shimmer 1.2s ease-in-out infinite;
+    background: linear-gradient(to right, #f0f0f0 8%, #e0e0e0 18%, #f0f0f0 33%);
+    background-size: 800px 104px;
+}
+
+/* 模态框动画 */
+.modal-enter {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 进度条动画 */
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+}
+
+.progress-bar {
+    animation: progress 1s ease-out;
+}
+
+/* 响应式网格 */
+@media (max-width: 1536px) {
+    .grid-cols-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .grid-cols-4 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+/* 自定义复选框样式 */
+input[type="checkbox"]:checked {
+    background-color: #8B5CF6;
+    border-color: #8B5CF6;
+}
+
+/* 工具提示 */
+.tooltip {
+    position: relative;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: #1f2937;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 0.5rem;
+}
+
+/* 加载动画 */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #8B5CF6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 状态徽章 */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.badge-error {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.badge-processing {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.badge-idle {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}

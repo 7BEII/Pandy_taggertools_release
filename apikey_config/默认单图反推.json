@@ -1,0 +1,6 @@
+{
+  "name": "默认单图反推",
+  "mode": "tagging",
+  "system_prompt": "You are an AI prompt expert who can analyze images. Please look closely at the image and provide a detailed and accurate description as required.",
+  "user_prompt": "Describe this image in detail for text-to-image training dataset captions."
+}

@@ -1,0 +1,52 @@
+# 项目：Pandy AI 打标工具箱 (Pandy AI Tagger Tools)
+请修改之前先阅读一遍这些要点。
+1. 尽量使用中文进行回答我的问题，和修改。
+2. 在上传图片的时候都需要保持点击是弹窗Windows自带的文件管理，如果是Mac电脑就是Mac自带图片预览器，图片上传区域支持拖拽图片上传。
+3. 
+api 调用文档：硅基流动
+https://www.siliconflow.com.cn/api
+
+硅基流动API支持的模型列表。现在支持以下模型id：
+
+Qwen/Qwen3-VL-8B-Instruct
+Qwen/Qwen3-VL-32B-Instruct
+Qwen/Qwen2.5-VL-32B-Instruct
+Qwen/Qwen2.5-VL-7B-Instruct
+Qwen/Qwen2.5-VL-72B-Instruct
+Qwen/Qwen2-VL-72B-Instruct
+Pro/Qwen/Qwen2-VL-7B-Instruct
+---
+这个是modelscope的api调用文档
+https://modelscope.cn/docs/model-service/API-Inference/intro 
+这个是tuzi兔子的api调用文档
+https://tuzi-api.apifox.cn/7324329m0
+
+LOGO尺寸：建议 80x80 像素或 128x128 像素（正方形）。
+格式：推荐 PNG (支持透明背景) 或 SVG (矢量图，不失真)。JPG 也可以。
+背景：如果是 Logo 图标，建议使用透明背景。
+
+
+PD，convert the photo to PD style, anime style
+
+
+主界面有几大功能：这几块是最核心主界面页面，其他页面都是支持这几块的。
+-图像模型反推
+-图像编辑模型
+-训练分析器
+-ai对话
+
+-1.训练分析器 界面
+切换到训练分析器模式时：
+  左侧边栏会隐藏
+  页面顶部显示API渠道和模型选择
+  整个内容区域更大更宽敞
+  内部添加API配置，所有的界面的apikey都统一setting里面的apikey 调用
+
+
+## 架构 (Architecture)
+- **后端**: Python Flask (`backend/app.py`)
+- **前端**: HTML5, TailwindCSS, Alpine.js (`frontend/`)
+- **启动器**:
+  - `web_launcher.py`: 启动 Flask 并打开默认浏览器（**浏览器模式**推荐）。
+  - `desktop_launcher.py`: 启动 Flask 并打开 pywebview 窗口（**桌面应用模式**）。
+

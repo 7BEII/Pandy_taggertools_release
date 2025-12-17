@@ -1,0 +1,105 @@
+{
+  "current_provider": "tuzi",
+  "model": "gpt-4o",
+  "providers": {
+    "modelscope": {
+      "api_key": "",
+      "base_url": "https://api.modelscope.cn/v1",
+      "models": [
+        {
+          "id": "Qwen/Qwen3-VL-4B-Instruct",
+          "name": "Qwen/Qwen3-VL-4B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "name": "Qwen/Qwen3-VL-8B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen3-VL-32B-Instruct",
+          "name": "Qwen/Qwen3-VL-32B-Instruct"
+        }
+      ]
+    },
+    "siliconflow": {
+      "api_key": "",
+      "base_url": "https://api.siliconflow.cn/v1",
+      "models": [
+        {
+          "id": "Qwen/Qwen2.5-VL-32B-Instruct",
+          "name": "Qwen/Qwen2.5-VL-32B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen2.5-VL-7B-Instruct",
+          "name": "Qwen/Qwen2.5-VL-7B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen2.5-VL-72B-Instruct",
+          "name": "Qwen/Qwen2.5-VL-72B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen2-VL-72B-Instruct",
+          "name": "Qwen/Qwen2-VL-72B-Instruct"
+        },
+        {
+          "id": "Pro/Qwen/Qwen2-VL-7B-Instruct",
+          "name": "Pro/Qwen/Qwen2-VL-7B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "name": "Qwen/Qwen3-VL-8B-Instruct"
+        },
+        {
+          "id": "Qwen/Qwen3-VL-32B-Instruct",
+          "name": "Qwen/Qwen3-VL-32B-Instruct"
+        }
+      ]
+    },
+    "tuzi": {
+      "api_key": "",
+      "base_url": "https://api.tu-zi.com/v1",
+      "models": [
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o"
+        },
+        {
+          "id": "chatgpt-4o-latest",
+          "name": "ChatGPT-4o-Latest"
+        },
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o-Mini"
+        },
+        {
+          "id": "gpt-4-turbo",
+          "name": "GPT-4-Turbo"
+        },
+        {
+          "id": "gpt-3.5-turbo",
+          "name": "GPT-3.5-Turbo"
+        },
+        {
+          "id": "claude-3-5-sonnet-20241022",
+          "name": "Claude-3.5-Sonnet"
+        },
+        {
+          "id": "claude-3-opus-20240229",
+          "name": "Claude-3-Opus"
+        },
+        {
+          "id": "gemini-2.0-flash",
+          "name": "Gemini-2.0-Flash"
+        },
+        {
+          "id": "gemini-1.5-pro",
+          "name": "Gemini-1.5-Pro"
+        },
+        {
+          "id": "gemini-3-pro-deepsearch",
+          "name": "Gemini-3-Pro-DeepSearch"
+        }
+      ]
+    }
+  },
+  "ai_analysis_prompt": "你是一位专业的深度学习训练分析专家。请根据提供的训练数据，分析训练过程并给出优化建议。\n\n分析要点：\n1. 训练曲线分析：Loss变化趋势、收敛情况、是否存在过拟合/欠拟合\n2. 最优Epoch分析：最佳checkpoint选择建议\n3. 超参数建议：学习率、batch size、训练轮数等调整建议\n4. 潜在问题诊断：训练中可能存在的问题及解决方案\n\n请用中文回答，给出具体、可操作的建议。"
+}
