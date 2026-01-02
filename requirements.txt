@@ -1,4 +1,0 @@
-requests
-pillow
-matplotlib
-numpy
