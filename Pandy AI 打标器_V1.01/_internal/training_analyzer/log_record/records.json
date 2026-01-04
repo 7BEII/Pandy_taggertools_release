@@ -1,0 +1,355 @@
+{
+  "records": [
+    {
+      "id": "20260104_160750_163094",
+      "model_name": "粘土clay anime_v1_2509qwenedit",
+      "analysis_date": "2026-01-04 16:07:50",
+      "log_file_path": "E:\\pandy_work\\github\\pandy_AI打标器_发布版\\pandy_taggertools\\training_analyzer\\training_log\\t2itrainer.log",
+      "num_epochs": 70,
+      "repeats": 1,
+      "save_model_epochs": 2,
+      "rank": 32,
+      "train_batch_size": 1,
+      "learning_rate": 0.0001,
+      "lr_scheduler": "cosine",
+      "train_data_dir": "/home/waas/训练任务-t2i/训练集/粘土clay anime_v1_2509qwenedit",
+      "pretrained_model_name_or_path": "/datasets/studio/huggingface/models/Qwen-Image-Edit-2509",
+      "training_time": "4h",
+      "steps": 2450,
+      "total_trained_epochs": 70,
+      "best_epoch": 46,
+      "best_val_loss": 0.11243018507957458,
+      "worst_val_loss": 0.11692593991756439,
+      "avg_val_loss": 0.11377214278493608,
+      "is_complete": true,
+      "completion_ratio": 1.0,
+      "actual_epochs": 70,
+      "target_epochs": 70,
+      "completeness_reason": "Complete",
+      "all_val_losses": [
+        {
+          "epoch": 0,
+          "val_loss": 0.11692593991756439
+        },
+        {
+          "epoch": 1,
+          "val_loss": 0.11688988655805588
+        },
+        {
+          "epoch": 2,
+          "val_loss": 0.11649233102798462
+        },
+        {
+          "epoch": 3,
+          "val_loss": 0.11561061441898346
+        },
+        {
+          "epoch": 4,
+          "val_loss": 0.11354456841945648
+        },
+        {
+          "epoch": 5,
+          "val_loss": 0.11500054597854614
+        },
+        {
+          "epoch": 6,
+          "val_loss": 0.11363592743873596
+        },
+        {
+          "epoch": 7,
+          "val_loss": 0.11548876762390137
+        },
+        {
+          "epoch": 8,
+          "val_loss": 0.11514487862586975
+        },
+        {
+          "epoch": 9,
+          "val_loss": 0.11472257971763611
+        },
+        {
+          "epoch": 10,
+          "val_loss": 0.11340337246656418
+        },
+        {
+          "epoch": 11,
+          "val_loss": 0.11470949649810791
+        },
+        {
+          "epoch": 12,
+          "val_loss": 0.1147606298327446
+        },
+        {
+          "epoch": 13,
+          "val_loss": 0.11306195706129074
+        },
+        {
+          "epoch": 14,
+          "val_loss": 0.11438504606485367
+        },
+        {
+          "epoch": 15,
+          "val_loss": 0.11334642022848129
+        },
+        {
+          "epoch": 16,
+          "val_loss": 0.11352360248565674
+        },
+        {
+          "epoch": 17,
+          "val_loss": 0.11341220885515213
+        },
+        {
+          "epoch": 18,
+          "val_loss": 0.1130920797586441
+        },
+        {
+          "epoch": 19,
+          "val_loss": 0.11441625654697418
+        },
+        {
+          "epoch": 20,
+          "val_loss": 0.11295077949762344
+        },
+        {
+          "epoch": 21,
+          "val_loss": 0.11266832053661346
+        },
+        {
+          "epoch": 22,
+          "val_loss": 0.11420723050832748
+        },
+        {
+          "epoch": 23,
+          "val_loss": 0.11283795535564423
+        },
+        {
+          "epoch": 24,
+          "val_loss": 0.11424356698989868
+        },
+        {
+          "epoch": 25,
+          "val_loss": 0.11297505348920822
+        },
+        {
+          "epoch": 26,
+          "val_loss": 0.11426582932472229
+        },
+        {
+          "epoch": 27,
+          "val_loss": 0.11368388682603836
+        },
+        {
+          "epoch": 28,
+          "val_loss": 0.11383023858070374
+        },
+        {
+          "epoch": 29,
+          "val_loss": 0.11274935305118561
+        },
+        {
+          "epoch": 30,
+          "val_loss": 0.11410269141197205
+        },
+        {
+          "epoch": 31,
+          "val_loss": 0.11304646730422974
+        },
+        {
+          "epoch": 32,
+          "val_loss": 0.1129668653011322
+        },
+        {
+          "epoch": 33,
+          "val_loss": 0.11301357299089432
+        },
+        {
+          "epoch": 34,
+          "val_loss": 0.11401408165693283
+        },
+        {
+          "epoch": 35,
+          "val_loss": 0.11285572499036789
+        },
+        {
+          "epoch": 36,
+          "val_loss": 0.11411421000957489
+        },
+        {
+          "epoch": 37,
+          "val_loss": 0.11400941759347916
+        },
+        {
+          "epoch": 38,
+          "val_loss": 0.11268208175897598
+        },
+        {
+          "epoch": 39,
+          "val_loss": 0.11270458996295929
+        },
+        {
+          "epoch": 40,
+          "val_loss": 0.11288495361804962
+        },
+        {
+          "epoch": 41,
+          "val_loss": 0.1138036772608757
+        },
+        {
+          "epoch": 42,
+          "val_loss": 0.11439096182584763
+        },
+        {
+          "epoch": 43,
+          "val_loss": 0.1128678247332573
+        },
+        {
+          "epoch": 44,
+          "val_loss": 0.11394521594047546
+        },
+        {
+          "epoch": 45,
+          "val_loss": 0.11384110152721405
+        },
+        {
+          "epoch": 46,
+          "val_loss": 0.11243018507957458
+        },
+        {
+          "epoch": 47,
+          "val_loss": 0.11284089833498001
+        },
+        {
+          "epoch": 48,
+          "val_loss": 0.11279825121164322
+        },
+        {
+          "epoch": 49,
+          "val_loss": 0.11259628087282181
+        },
+        {
+          "epoch": 50,
+          "val_loss": 0.11399552971124649
+        },
+        {
+          "epoch": 51,
+          "val_loss": 0.11365189403295517
+        },
+        {
+          "epoch": 52,
+          "val_loss": 0.11443500220775604
+        },
+        {
+          "epoch": 53,
+          "val_loss": 0.11387315392494202
+        },
+        {
+          "epoch": 54,
+          "val_loss": 0.11401638388633728
+        },
+        {
+          "epoch": 55,
+          "val_loss": 0.11290266364812851
+        },
+        {
+          "epoch": 56,
+          "val_loss": 0.11385083943605423
+        },
+        {
+          "epoch": 57,
+          "val_loss": 0.11269952356815338
+        },
+        {
+          "epoch": 58,
+          "val_loss": 0.11366669833660126
+        },
+        {
+          "epoch": 59,
+          "val_loss": 0.11409973353147507
+        },
+        {
+          "epoch": 60,
+          "val_loss": 0.11298945546150208
+        },
+        {
+          "epoch": 61,
+          "val_loss": 0.11250004917383194
+        },
+        {
+          "epoch": 62,
+          "val_loss": 0.11397269368171692
+        },
+        {
+          "epoch": 63,
+          "val_loss": 0.11409667134284973
+        },
+        {
+          "epoch": 64,
+          "val_loss": 0.11249323189258575
+        },
+        {
+          "epoch": 65,
+          "val_loss": 0.11417298018932343
+        },
+        {
+          "epoch": 66,
+          "val_loss": 0.11418645083904266
+        },
+        {
+          "epoch": 67,
+          "val_loss": 0.11420384049415588
+        },
+        {
+          "epoch": 68,
+          "val_loss": 0.11247152090072632
+        },
+        {
+          "epoch": 69,
+          "val_loss": 0.11388330161571503
+        }
+      ],
+      "top_10": [
+        {
+          "epoch": 46,
+          "val_loss": 0.11243018507957458
+        },
+        {
+          "epoch": 68,
+          "val_loss": 0.11247152090072632
+        },
+        {
+          "epoch": 64,
+          "val_loss": 0.11249323189258575
+        },
+        {
+          "epoch": 61,
+          "val_loss": 0.11250004917383194
+        },
+        {
+          "epoch": 49,
+          "val_loss": 0.11259628087282181
+        },
+        {
+          "epoch": 21,
+          "val_loss": 0.11266832053661346
+        },
+        {
+          "epoch": 38,
+          "val_loss": 0.11268208175897598
+        },
+        {
+          "epoch": 57,
+          "val_loss": 0.11269952356815338
+        },
+        {
+          "epoch": 39,
+          "val_loss": 0.11270458996295929
+        },
+        {
+          "epoch": 29,
+          "val_loss": 0.11274935305118561
+        }
+      ]
+    }
+  ]
+}

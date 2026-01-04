@@ -1,480 +1,0 @@
-Running 1 job
-{
-    "type": "diffusion_trainer",
-    "training_folder": "/root/ai-toolkit/output",
-    "sqlite_db_path": "/root/ai-toolkit/aitk_db.db",
-    "device": "cuda",
-    "trigger_word": null,
-    "performance_log_every": 10,
-    "network": {
-        "type": "lora",
-        "linear": 32,
-        "linear_alpha": 32,
-        "conv": 16,
-        "conv_alpha": 16,
-        "lokr_full_rank": true,
-        "lokr_factor": -1,
-        "network_kwargs": {
-            "ignore_if_contains": []
-        }
-    },
-    "save": {
-        "dtype": "bf16",
-        "save_every": 130,
-        "max_step_saves_to_keep": 15,
-        "save_format": "diffusers",
-        "push_to_hub": false
-    },
-    "datasets": [
-        {
-            "folder_path": "/root/ai-toolkit/datasets/zyy",
-            "mask_path": null,
-            "mask_min_value": 0.1,
-            "default_caption": "",
-            "caption_ext": "txt",
-            "caption_dropout_rate": 0.05,
-            "cache_latents_to_disk": false,
-            "is_reg": false,
-            "network_weight": 1,
-            "resolution": [
-                1024
-            ],
-            "controls": [],
-            "shrink_video_to_frames": true,
-            "num_frames": 1,
-            "do_i2v": true,
-            "flip_x": false,
-            "flip_y": false
-        }
-    ],
-    "train": {
-        "batch_size": 1,
-        "bypass_guidance_embedding": false,
-        "steps": 1950,
-        "gradient_accumulation": 1,
-        "train_unet": true,
-        "train_text_encoder": false,
-        "gradient_checkpointing": true,
-        "noise_scheduler": "flowmatch",
-        "optimizer": "adamw8bit",
-        "timestep_type": "weighted",
-        "content_or_style": "balanced",
-        "optimizer_params": {
-            "weight_decay": 0.0001
-        },
-        "unload_text_encoder": false,
-        "cache_text_embeddings": false,
-        "lr": 0.0002,
-        "ema_config": {
-            "use_ema": false,
-            "ema_decay": 0.99
-        },
-        "skip_first_sample": false,
-        "force_first_sample": false,
-        "disable_sampling": false,
-        "dtype": "bf16",
-        "diff_output_preservation": false,
-        "diff_output_preservation_multiplier": 1,
-        "diff_output_preservation_class": "person",
-        "switch_boundary_every": 1,
-        "loss_type": "mse"
-    },
-    "model": {
-        "name_or_path": "Tongyi-MAI/Z-Image-Turbo",
-        "quantize": true,
-        "qtype": "qfloat8",
-        "quantize_te": true,
-        "qtype_te": "qfloat8",
-        "arch": "zimage:turbo",
-        "low_vram": false,
-        "model_kwargs": {},
-        "layer_offloading": false,
-        "layer_offloading_text_encoder_percent": 1,
-        "layer_offloading_transformer_percent": 1,
-        "assistant_lora_path": "ostris/zimage_turbo_training_adapter/zimage_turbo_training_adapter_v1.safetensors"
-    },
-    "sample": {
-        "sampler": "flowmatch",
-        "sample_every": 130,
-        "width": 768,
-        "height": 1024,
-        "samples": [
-            {
-                "prompt": "ZYY,, The image shows a young woman in a school uniform posing in a bedroom. She is standing in front of a desk with a computer monitor, keyboard, and other items on it. The woman has long black hair and is wearing a white blouse with a red bow on the collar and a navy blue skirt. She has a big smile on her face and is making a peace sign with her right hand. Behind her, there is a bed with pink and white pillows and a bookshelf with stuffed animals. The room appears to be well-lit with natural light coming in from the window."
-            },
-            {
-                "prompt": "ZYY,, The image shows a young woman taking a selfie with her phone. She is standing on a wooden boardwalk at night, with trees and streetlights in the background. The woman is wearing a white off-the-shoulder top and has long dark hair that is styled in loose waves. She has a serious expression on her face and is looking directly at the camera. The phone she is holding is white and appears to be an iPhone."
-            },
-            {
-                "prompt": "ZYY,, The image is a portrait of a young woman standing on a beach. She is wearing a white off-the-shoulder top and a black mini skirt. Her long dark hair is styled in loose waves and she is looking directly at the camera with a slight smile on her face. The sky is blue with a few clouds and the sun is shining brightly in the top right corner. The ocean can be seen in the background with small waves crashing onto the shore. The overall mood of the image is peaceful and serene."
-            }
-        ],
-        "neg": "",
-        "seed": 42,
-        "walk_seed": true,
-        "guidance_scale": 1,
-        "sample_steps": 8,
-        "num_frames": 1,
-        "fps": 1
-    }
-}
-Using SQLite database at /root/ai-toolkit/aitk_db.db
-Job ID: "f053685a-5058-4dfb-9626-09100671f85c"
-
-#############################################
-# Running job: ZYY-12.08
-#############################################
-
-
-Running  1 process
-Loading ZImage model
-Loading transformer
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|###3      | 1/3 [00:01<00:03,  1.59s/it]Loading checkpoint shards:  33%|###3      | 1/3 [00:01<00:03,  1.59s/it]Loading checkpoint shards:  67%|######6   | 2/3 [00:02<00:01,  1.43s/it]Loading checkpoint shards:  67%|######6   | 2/3 [00:02<00:01,  1.43s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:03<00:00,  1.05s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:03<00:00,  1.05s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:03<00:00,  1.17s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:03<00:00,  1.17s/it]
-
-Loading assistant LoRA
-create LoRA network. base dim (rank): 32, alpha: 32
-neuron dropout: p=None, rank dropout: p=None, module dropout: p=None
-create LoRA for Text Encoder: 0 modules.
-create LoRA for U-Net: 276 modules.
-enable LoRA for U-Net
-Merging in assistant LoRA
-Missing keys: []
-Quantizing Transformer
- - quantizing 30 transformer blocks
-  0%|          | 0/30 [00:00<?, ?it/s]  0%|          | 0/30 [00:00<?, ?it/s]  3%|3         | 1/30 [00:00<00:03,  8.93it/s]  3%|3         | 1/30 [00:00<00:03,  8.93it/s] 10%|#         | 3/30 [00:00<00:02, 11.83it/s] 10%|#         | 3/30 [00:00<00:02, 11.83it/s] 17%|#6        | 5/30 [00:00<00:02, 12.47it/s] 17%|#6        | 5/30 [00:00<00:02, 12.47it/s] 23%|##3       | 7/30 [00:00<00:01, 12.77it/s] 23%|##3       | 7/30 [00:00<00:01, 12.77it/s] 30%|###       | 9/30 [00:00<00:01, 13.06it/s] 30%|###       | 9/30 [00:00<00:01, 13.06it/s] 37%|###6      | 11/30 [00:00<00:01, 11.42it/s] 37%|###6      | 11/30 [00:00<00:01, 11.42it/s] 43%|####3     | 13/30 [00:01<00:01,  9.95it/s] 43%|####3     | 13/30 [00:01<00:01,  9.95it/s] 50%|#####     | 15/30 [00:01<00:01,  9.15it/s] 50%|#####     | 15/30 [00:01<00:01,  9.15it/s] 53%|#####3    | 16/30 [00:01<00:01,  9.07it/s] 53%|#####3    | 16/30 [00:01<00:01,  9.07it/s] 57%|#####6    | 17/30 [00:01<00:01,  8.60it/s] 57%|#####6    | 17/30 [00:01<00:01,  8.60it/s] 60%|######    | 18/30 [00:01<00:01,  8.62it/s] 60%|######    | 18/30 [00:01<00:01,  8.62it/s] 63%|######3   | 19/30 [00:01<00:01,  8.24it/s] 63%|######3   | 19/30 [00:01<00:01,  8.24it/s] 67%|######6   | 20/30 [00:02<00:01,  8.36it/s] 67%|######6   | 20/30 [00:02<00:01,  8.36it/s] 70%|#######   | 21/30 [00:02<00:01,  8.04it/s] 70%|#######   | 21/30 [00:02<00:01,  8.04it/s] 73%|#######3  | 22/30 [00:02<00:00,  8.22it/s] 73%|#######3  | 22/30 [00:02<00:00,  8.22it/s] 77%|#######6  | 23/30 [00:02<00:00,  7.93it/s] 77%|#######6  | 23/30 [00:02<00:00,  7.93it/s] 80%|########  | 24/30 [00:02<00:00,  8.13it/s] 80%|########  | 24/30 [00:02<00:00,  8.13it/s] 83%|########3 | 25/30 [00:02<00:00,  7.78it/s] 83%|########3 | 25/30 [00:02<00:00,  7.78it/s] 87%|########6 | 26/30 [00:02<00:00,  7.64it/s] 87%|########6 | 26/30 [00:02<00:00,  7.64it/s] 90%|######### | 27/30 [00:02<00:00,  8.00it/s] 90%|######### | 27/30 [00:02<00:00,  8.00it/s] 93%|#########3| 28/30 [00:03<00:00,  7.86it/s] 93%|#########3| 28/30 [00:03<00:00,  7.86it/s] 97%|#########6| 29/30 [00:03<00:00,  8.21it/s] 97%|#########6| 29/30 [00:03<00:00,  8.21it/s]100%|##########| 30/30 [00:03<00:00,  8.02it/s]100%|##########| 30/30 [00:03<00:00,  8.02it/s]100%|##########| 30/30 [00:03<00:00,  9.02it/s]100%|##########| 30/30 [00:03<00:00,  9.02it/s]
-
- - quantizing extras
-Text Encoder
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  67%|######6   | 2/3 [00:00<00:00, 16.92it/s]Loading checkpoint shards:  67%|######6   | 2/3 [00:00<00:00, 16.92it/s]Loading checkpoint shards: 100%|##########| 3/3 [00:00<00:00, 22.67it/s]Loading checkpoint shards: 100%|##########| 3/3 [00:00<00:00, 22.67it/s]
-
-Quantizing Text Encoder
-Loading VAE
-Error running job: Tongyi-MAI/Z-Image-Turbo does not appear to have a file named config.json.
-
-========================================
-Result:
- - 0 completed jobs
- - 1 failure
-========================================
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
-    response = conn.getresponse()
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
-    response = conn.getresponse()
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connection.py", line 565, in getresponse
-    httplib_response = super().getresponse()
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connection.py", line 565, in getresponse
-    httplib_response = super().getresponse()
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 1430, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 1430, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 331, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 331, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 292, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "/root/miniconda3/lib/python3.13/http/client.py", line 292, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "/root/miniconda3/lib/python3.13/socket.py", line 719, in readinto
-    return self._sock.recv_into(b)
-           ~~~~~~~~~~~~~~~~~~~~^^^
-  File "/root/miniconda3/lib/python3.13/socket.py", line 719, in readinto
-    return self._sock.recv_into(b)
-           ~~~~~~~~~~~~~~~~~~~~^^^
-  File "/root/miniconda3/lib/python3.13/ssl.py", line 1304, in recv_into
-    return self.read(nbytes, buffer)
-           ~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/root/miniconda3/lib/python3.13/ssl.py", line 1304, in recv_into
-    return self.read(nbytes, buffer)
-           ~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/root/miniconda3/lib/python3.13/ssl.py", line 1138, in read
-    return self._sslobj.read(len, buffer)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/root/miniconda3/lib/python3.13/ssl.py", line 1138, in read
-    return self._sslobj.read(len, buffer)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-TimeoutError: The read operation timed out
-TimeoutError: The read operation timed out
-
-The above exception was the direct cause of the following exception:
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
-    raise value
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
-    raise value
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
-    raise ReadTimeoutError(
-        self, url, f"Read timed out. (read timeout={timeout_value})"
-    ) from err
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
-    raise ReadTimeoutError(
-        self, url, f"Read timed out. (read timeout={timeout_value})"
-    ) from err
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
-    metadata = get_hf_file_metadata(
-        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
-    metadata = get_hf_file_metadata(
-        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
-    r = _request_wrapper(
-        method="HEAD",
-    ...<5 lines>...
-        timeout=timeout,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
-    r = _request_wrapper(
-        method="HEAD",
-    ...<5 lines>...
-        timeout=timeout,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
-    response = _request_wrapper(
-        method=method,
-    ...<2 lines>...
-        **params,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
-    response = _request_wrapper(
-        method=method,
-    ...<2 lines>...
-        **params,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 309, in _request_wrapper
-    response = http_backoff(method=method, url=url, **params, retry_on_exceptions=(), retry_on_status_codes=(429,))
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 309, in _request_wrapper
-    response = http_backoff(method=method, url=url, **params, retry_on_exceptions=(), retry_on_status_codes=(429,))
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 310, in http_backoff
-    response = session.request(method=method, url=url, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 310, in http_backoff
-    response = session.request(method=method, url=url, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 96, in send
-    return super().send(request, *args, **kwargs)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 96, in send
-    return super().send(request, *args, **kwargs)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/adapters.py", line 713, in send
-    raise ReadTimeout(e, request=request)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/requests/adapters.py", line 713, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: eda41ae8-229b-4e70-9746-9860c65c1c4c)')
-requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: eda41ae8-229b-4e70-9746-9860c65c1c4c)')
-
-The above exception was the direct cause of the following exception:
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/configuration_utils.py", line 392, in load_config
-    config_file = hf_hub_download(
-        pretrained_model_name_or_path,
-    ...<10 lines>...
-        local_dir_use_symlinks=local_dir_use_symlinks,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/configuration_utils.py", line 392, in load_config
-    config_file = hf_hub_download(
-        pretrained_model_name_or_path,
-    ...<10 lines>...
-        local_dir_use_symlinks=local_dir_use_symlinks,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
-    return _hf_hub_download_to_cache_dir(
-        # Destination
-    ...<14 lines>...
-        force_download=force_download,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
-    return _hf_hub_download_to_cache_dir(
-        # Destination
-    ...<14 lines>...
-        force_download=force_download,
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
-    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
-    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1661, in _raise_on_head_call_error
-    raise LocalEntryNotFoundError(
-    ...<3 lines>...
-    ) from head_call_error
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1661, in _raise_on_head_call_error
-    raise LocalEntryNotFoundError(
-    ...<3 lines>...
-    ) from head_call_error
-huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
-huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
-
-During handling of the above exception, another exception occurred:
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/root/ai-toolkit/run.py", line 120, in <module>
-    main()
-    ~~~~^^
-  File "/root/ai-toolkit/run.py", line 120, in <module>
-    main()
-    ~~~~^^
-  File "/root/ai-toolkit/run.py", line 108, in main
-    raise e
-  File "/root/ai-toolkit/run.py", line 108, in main
-    raise e
-  File "/root/ai-toolkit/run.py", line 96, in main
-    job.run()
-    ~~~~~~~^^
-  File "/root/ai-toolkit/run.py", line 96, in main
-    job.run()
-    ~~~~~~~^^
-  File "/root/ai-toolkit/jobs/ExtensionJob.py", line 22, in run
-    process.run()
-    ~~~~~~~~~~~^^
-  File "/root/ai-toolkit/jobs/ExtensionJob.py", line 22, in run
-    process.run()
-    ~~~~~~~~~~~^^
-  File "/root/ai-toolkit/jobs/process/BaseSDTrainProcess.py", line 1565, in run
-    self.sd.load_model()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "/root/ai-toolkit/jobs/process/BaseSDTrainProcess.py", line 1565, in run
-    self.sd.load_model()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "/root/ai-toolkit/extensions_built_in/diffusion_models/z_image/z_image.py", line 228, in load_model
-    vae = AutoencoderKL.from_pretrained(
-        base_model_path, subfolder="vae", torch_dtype=dtype
-    )
-  File "/root/ai-toolkit/extensions_built_in/diffusion_models/z_image/z_image.py", line 228, in load_model
-    vae = AutoencoderKL.from_pretrained(
-        base_model_path, subfolder="vae", torch_dtype=dtype
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/models/modeling_utils.py", line 1057, in from_pretrained
-    config, unused_kwargs, commit_hash = cls.load_config(
-                                         ~~~~~~~~~~~~~~~^
-        config_path,
-        ^^^^^^^^^^^^
-    ...<11 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/models/modeling_utils.py", line 1057, in from_pretrained
-    config, unused_kwargs, commit_hash = cls.load_config(
-                                         ~~~~~~~~~~~~~~~^
-        config_path,
-        ^^^^^^^^^^^^
-    ...<11 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/configuration_utils.py", line 419, in load_config
-    raise EnvironmentError(
-        f"{pretrained_model_name_or_path} does not appear to have a file named {cls.config_name}."
-    )
-  File "/root/ai-toolkit/venv/lib/python3.13/site-packages/diffusers/configuration_utils.py", line 419, in load_config
-    raise EnvironmentError(
-        f"{pretrained_model_name_or_path} does not appear to have a file named {cls.config_name}."
-    )
-OSError: Tongyi-MAI/Z-Image-Turbo does not appear to have a file named config.json.
-OSError: Tongyi-MAI/Z-Image-Turbo does not appear to have a file named config.json.
