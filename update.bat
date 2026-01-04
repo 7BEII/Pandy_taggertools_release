@@ -11,6 +11,7 @@ echo.
 :: 需要保留的用户配置文件
 set "CONFIG1=Pandy AI 打标器_V1.01\apikey_config\默认单图反推.json"
 set "CONFIG2=Pandy AI 打标器_V1.01\apikey_config\默认编辑模型.json"
+set "UPDATE_BAT=%~f0"
 
 :: 使用项目内置的 Git
 set "GIT_CMD=%~dp0portable-git\cmd\git.exe"
@@ -38,6 +39,7 @@ if not exist ".git" (
     echo 正在备份用户配置...
     if exist "%CONFIG1%" copy "%CONFIG1%" "%CONFIG1%.bak" >nul
     if exist "%CONFIG2%" copy "%CONFIG2%" "%CONFIG2%.bak" >nul
+    copy "%UPDATE_BAT%" "%UPDATE_BAT%.bak" >nul
     
     echo 正在从远程仓库拉取最新代码...
     echo.
@@ -53,6 +55,10 @@ if not exist ".git" (
         copy "%CONFIG2%.bak" "%CONFIG2%" >nul
         del "%CONFIG2%.bak" >nul
     )
+    if exist "%UPDATE_BAT%.bak" (
+        copy "%UPDATE_BAT%.bak" "%UPDATE_BAT%" >nul
+        del "%UPDATE_BAT%.bak" >nul
+    )
 )
 
 :: 获取提交信息
@@ -65,4 +71,4 @@ echo %HASH% -- %TIME_AGO%  %MSG%  %AUTHOR%
 echo.
 echo 当前版本成功更新为最新版本！
 echo.
-timeout /t 3 >nul
+timeout /t 10 >nul
