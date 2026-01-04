@@ -621,7 +621,7 @@ function taggerApp() {
                 // console.log('[DEBUG] 机器码长度:', result.cpu_uuid.length);
                 // console.log('[DEBUG] 机器码HEX:', result.cpu_hex);
                 
-                this.licenseStatus = '已获取机器码，请将机器码发送给管理员获取激活码。';
+                this.licenseStatus = '已获取激活码，请复制激活码发送管理员，找微信：PQB0660 获取';
             } catch (e) {
                 this.showNotification('获取机器码出错: ' + (e && e.message), 'error');
                 this.licenseStatus = '获取机器码出错';

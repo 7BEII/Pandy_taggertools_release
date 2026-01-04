@@ -1,8 +1,8 @@
 @echo off
 chcp 65001 >nul
-title Pandy AI 打标器 V1.0
+title Pandy AI 打标器 V1.01
 echo ========================================
-echo   Pandy AI 打标器 V1.0
+echo   Pandy AI 打标器 V1.01
 echo ========================================
 echo.
 echo 正在启动服务...
