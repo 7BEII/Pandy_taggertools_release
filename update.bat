@@ -12,11 +12,12 @@ echo.
 set "CONFIG1=Pandy AI 打标器_V1.01\apikey_config\默认单图反推.json"
 set "CONFIG2=Pandy AI 打标器_V1.01\apikey_config\默认编辑模型.json"
 
-:: 检查是否安装了 Git
-where git >nul 2>nul
-if %errorlevel% neq 0 (
-    echo [错误] 未检测到 Git，请先安装 Git
-    echo 下载地址: https://git-scm.com/downloads
+:: 使用项目内置的 Git
+set "GIT_CMD=%~dp0portable-git\cmd\git.exe"
+
+:: 检查内置 Git 是否存在
+if not exist "%GIT_CMD%" (
+    echo [错误] 未找到内置 Git 组件，请重新下载完整版本
     echo.
     pause
     exit /b 1
@@ -26,7 +27,7 @@ if %errorlevel% neq 0 (
 if not exist ".git" (
     echo [提示] 当前目录不是 Git 仓库，正在克隆...
     echo.
-    git clone https://github.com/7BEII/Pandy_taggertools_release.git .
+    "%GIT_CMD%" clone https://github.com/7BEII/Pandy_taggertools_release.git .
     if %errorlevel% neq 0 (
         echo [错误] 克隆失败，请检查网络连接
         pause
@@ -40,8 +41,8 @@ if not exist ".git" (
     
     echo 正在从远程仓库拉取最新代码...
     echo.
-    git fetch origin
-    git reset --hard origin/main
+    "%GIT_CMD%" fetch origin
+    "%GIT_CMD%" reset --hard origin/main
     
     :: 恢复用户配置
     echo 正在恢复用户配置...
