@@ -19,7 +19,7 @@ set "GIT_CMD=%~dp0portable-git\cmd\git.exe"
 if not exist "%GIT_CMD%" (
     echo [错误] 未找到内置 Git 组件，请重新下载完整版本
     echo.
-    pause
+    timeout /t 3 >nul
     exit /b 1
 )
 
@@ -30,7 +30,7 @@ if not exist ".git" (
     "%GIT_CMD%" clone https://github.com/7BEII/Pandy_taggertools_release.git .
     if %errorlevel% neq 0 (
         echo [错误] 克隆失败，请检查网络连接
-        pause
+        timeout /t 3 >nul
         exit /b 1
     )
 ) else (
@@ -41,11 +41,10 @@ if not exist ".git" (
     
     echo 正在从远程仓库拉取最新代码...
     echo.
-    "%GIT_CMD%" fetch origin
-    "%GIT_CMD%" reset --hard origin/main
+    "%GIT_CMD%" fetch origin >nul 2>&1
+    "%GIT_CMD%" reset --hard origin/main >nul 2>&1
     
     :: 恢复用户配置
-    echo 正在恢复用户配置...
     if exist "%CONFIG1%.bak" (
         copy "%CONFIG1%.bak" "%CONFIG1%" >nul
         del "%CONFIG1%.bak" >nul
@@ -56,9 +55,14 @@ if not exist ".git" (
     )
 )
 
+:: 获取提交信息
+for /f "usebackq delims=" %%i in (`"%GIT_CMD%" log -1 --format^=%%h`) do set "HASH=%%i"
+for /f "usebackq delims=" %%i in (`"%GIT_CMD%" log -1 --format^=%%cr`) do set "TIME_AGO=%%i"
+for /f "usebackq delims=" %%i in (`"%GIT_CMD%" log -1 --format^=%%s`) do set "MSG=%%i"
+for /f "usebackq delims=" %%i in (`"%GIT_CMD%" log -1 --format^=%%an`) do set "AUTHOR=%%i"
+
+echo %HASH% -- %TIME_AGO%  %MSG%  %AUTHOR%
 echo.
-echo ========================================
-echo   更新完成！
-echo ========================================
+echo 当前版本成功更新为最新版本！
 echo.
-pause
+timeout /t 3 >nul
