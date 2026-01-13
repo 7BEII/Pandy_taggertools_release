@@ -1,0 +1,6 @@
+{
+  "name": "快速单图反推",
+  "mode": "tagging",
+  "system_prompt": "You are an image captioning expert. Output a concise, comma-separated tag list describing the image.",
+  "user_prompt": "Each description should not exceed 100 characters, output in English.描述图片中的中文"
+}

@@ -1,0 +1,95 @@
+{
+  "current_provider": "siliconflow",
+  "model": "Qwen/Qwen3-VL-8B-Instruct",
+  "prompt_templates": {
+    "editing": {
+      "selected": "default",
+      "templates": [
+        {
+          "id": "default",
+          "name": "默认(编辑模型)",
+          "system_prompt": "你是一位专业的视觉分析师。你的目标是分析图像并产生简短准确的描述， 描述为了将第一张图转变为第二张图所做的改变。请重点关注第二张图具体发生的修改、添加、删除或变更，无需描述他们原来的服装场景,尽量不描述颜色，如果是小女孩要用girl 女生用woman。\n\n输出格式：\n\n除了描述提示词本身外，不要回应任何其他内容\n\n不要将描述分成两部分或多行\nPD 是触发词，需要放置最前面\n\n请提供不超过160字的详细描述来解释这个转变过程，根据参考示例用英语描述,示例提示词：\nPD, Turn the pet into a Vector illustration painting style,and soft shading to define fur texture and facial features,set against a clean white background.",
+          "user_prompt": "Generate the transformation prompt."
+        },
+        {
+          "id": "file_默认编辑模型.json",
+          "name": "默认(编辑模型)",
+          "system_prompt": "你是一位专业的视觉分析师。你的目标是分析图像并产生简短准确的描述， 描述为了将第一张图转变为第二张图所做的改变。请重点关注第二张图具体发生的修改、添加、删除或变更，无需描述他们原来的服装场景,尽量不描述颜色，如果是小女孩要用girl 女生用woman。\n\n输出格式：\n\n除了描述提示词本身外，不要回应任何其他内容\n\n不要将描述分成两部分或多行\nPD 是触发词，需要放置最前面\n\n请提供不超过160字的详细描述来解释这个转变过程，根据参考示例用英语描述,示例提示词：\nPD, Turn the pet into a Vector illustration painting style,and soft shading to define fur texture and facial features,set against a clean white background.",
+          "user_prompt": "Generate the transformation prompt.",
+          "file_path": "E:\\pandy_work\\github\\pandy_taggertools\\apikey_config\\默认编辑模型.json"
+        }
+      ]
+    },
+    "tagging": {
+      "selected": "default",
+      "templates": [
+        {
+          "id": "default",
+          "name": "默认打标",
+          "system_prompt": "You are an AI prompt expert who can analyze images. Please look closely at the image and provide a detailed and accurate description as required.",
+          "user_prompt": "Describe this image in detail for text-to-image training dataset captions."
+        },
+        {
+          "id": "art_style_analysis",
+          "name": "艺术风格与材质解析",
+          "system_prompt": "You are a master of art history and digital media. Your goal is to identify the specific artistic style, medium, lighting technique, and texture details of the provided image.",
+          "user_prompt": "分析图片的艺术风格（如：赛博朋克、油画、Ukiyo-e）、光效、色彩调色盘以及使用的材质细节。请使用英文逗号分隔的标签形式输出。"
+        },
+        {
+          "id": "anime_tagging",
+          "name": "动漫/二次元打标",
+          "system_prompt": "You are an expert anime image tagger. You use standardized Danbooru-style tags to describe characters, poses, outfits, and backgrounds.",
+          "user_prompt": "识别图片中的人物特征、发色、瞳色、服装、姿势及背景。按重要程度降序排列标签，全部使用英文小写标签，用逗号分隔。"
+        },
+        {
+          "id": "commercial_photography",
+          "name": "商业摄影与构图",
+          "system_prompt": "You are a professional photographer and cinematographer. Analyze the technical aspects of this image.",
+          "user_prompt": "描述这张图片的构图方式（如：三分法、俯拍）、镜头焦段（如：广角、长焦）、景深效果以及光影布置。输出一段专业且简洁的英文描述。"
+        },
+        {
+          "id": "interior_design",
+          "name": "室内设计与场景",
+          "system_prompt": "You are an interior designer and 3D architectural visualizer. Focus on spatial layout and object recognition.",
+          "user_prompt": "列出空间内的所有家具物件、装修风格（如：极简、北欧）、墙面材质和空间布局特点。输出适合作为 AI 生成图片的提示词。"
+        },
+        {
+          "id": "creative_mood",
+          "name": "创意意境描述",
+          "system_prompt": "You are a creative writer and visual storyteller. Describe the mood, atmosphere, and hidden narrative of the image.",
+          "user_prompt": "用富有诗意的自然语言描述这张图片传达的情绪（如：忧郁、充满希望）和整体氛围。字数控制在 200 字符以内，输出纯英文。"
+        },
+        {
+          "id": "file_快速单图反推.json",
+          "name": "快速单图反推",
+          "system_prompt": "You are an image captioning expert. Output a concise, comma-separated tag list describing the image.",
+          "user_prompt": "Each description should not exceed 100 characters, output in English.描述图片中的中文",
+          "file_path": "E:\\pandy_work\\github\\pandy_taggertools\\apikey_config\\快速单图反推.json"
+        },
+        {
+          "id": "file_默认单图反推.json",
+          "name": "默认单图反推",
+          "system_prompt": "You are an AI prompt expert who can analyze images. Please look closely at the image and provide a detailed and accurate description as required.",
+          "user_prompt": "Describe this image in detail for text-to-image training dataset captions.",
+          "file_path": "E:\\pandy_work\\github\\pandy_taggertools\\apikey_config\\默认单图反推.json"
+        }
+      ]
+    }
+  },
+  "providers": {
+    "modelscope": {
+      "api_key": "",
+      "base_url": "https://api-inference.modelscope.cn/v1"
+    },
+    "siliconflow": {
+      "api_key": "",
+      "base_url": "https://api.siliconflow.cn/v1"
+    },
+    "tuzi": {
+      "api_key": "",
+      "base_url": "https://api.tuziapi.com/v1"
+    }
+  },
+  "system_prompt": "",
+  "user_prompt": ""
+}
